@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Temperature Converter</h2>
+
+<p>Input Celsuis value to convert to Fahrenheit:</p>
+
+<input id="numb">
+
+<button type="button" onclick="fahfunc()">Submit</button>
+
+<p id="fahresult"></p>
+
+<p>Input Fahrenheit value to convert to Celsuis:</p>
+
+<input id="celnumb">
+
+<button type="button" onclick="celfunc()">Submit</button>
+
+<p id="celresult"></p>
+
+<script>
+function fahfunc() {
+
+  // Get the value of the input field with id="numb"
+  var x = document.getElementById('numb').value;
+  
+  var f = x*9/5+32;
+  document.getElementById("fahresult").innerHTML = f;
+}
+
+function celfunc() {
+
+  // Get the value of the input field with id="numb"
+  var x = document.getElementById('celnumb').value;
+  
+  var c = (5/9) * (x-32);
+  document.getElementById("celresult").innerHTML = c;
+}
+</script>
+
+</body>
+</html> 

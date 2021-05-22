@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+#myDIV {
+  width: 100%;
+  padding: 25px 0;
+  background-color: lightblue;
+  margin-top: 50px;
+}
+
+#stocklist{
+	text-align: center;
+	background-color: pink;
+}
+  h1 {color:red; text-align: center;}
+  h3 {text-align: center;}
+
+#div2{
+	text-align: center;
+	border: 2px solid powderblue;
+	padding: 30px;
+	margin: 50px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="myDIV">
+
+<h3>Task</h3>
+<ul>
+<li>Write a function that takes in a list of stock at a shop. It will ask the customer what they’re looking for, and if it’s in stock then it will return “[your item] is currently in stock”.</li>
+<li>If the item is not in stock then it will return “[your item] is not in stock.” </li>
+<li>And will ask the customer if they want to order the item. </li>
+<li>If yes, then the item will get added to stock list. Print out the new list to check. 
+If no, then the program will terminate with a message.</li>
+</ul>
+</div>
+
+<h1>Welcome to Stock Checker</h1>
+
+<h3>Enter the item you are looking for:</h3>
+
+
+<div id="div2">
+<input id="item">
+
+<button type="button" onclick="func()">Submit</button>
+
+<p id="itemRes"></p>
+
+
+<p>Only click below if item is out of stock:  </p>
+<button id="yes" onclick="yes()" >Yes</button>
+<button id="no" onclick="no()">No</button>
+
+<div id="stocklist">
+<p id="itemRes3"></p>
+</div>
+
+<p id="itemRes4"></p>
+</div>
+
+<script>
+var stockList = ["apple","banana","orange"];//array to store items in stock
+var updatedStock = []; //array to store the entered item into a global array
+
+
+function func(x) {
+	//check to ensure field is not blank
+	var check = document.getElementById('item').value;
+	if(check ===''){
+		alert("Enter a value.");
+	}else{
+	
+	var x = document.getElementById('item').value;
+
+    //Checks whether the item is in the stock list
+    if (stockList.includes(x)){
+		document.getElementById("itemRes").innerHTML = "Your item: " + x + " is currently in stock";
+
+		
+	}else {
+		document.getElementById("itemRes").innerHTML = x + " is not in stock. Would you like to order " + x + " ?";
+		updatedStock = x;//adds local variable x to global variable updatedStock array so its accessible with other functions.
+		}
+	}
+  }
+ 
+
+function yes(){
+  stockList.push(updatedStock);
+  document.getElementById("itemRes4").innerHTML = updatedStock + " has been added. Thank you for visiting.";
+  
+  document.getElementById("itemRes3").innerHTML = "Updated stock: "+ stockList;
+  //document.getElementById("yes").disabled = true; //disable the button
+
+}
+
+function no(){
+	document.getElementById("itemRes4").innerHTML = "Thank you for your order";
+}
+
+
+  
+</script>
+
+
+
+
+
+
+</body>
+</html> 
